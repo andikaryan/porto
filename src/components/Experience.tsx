@@ -14,38 +14,28 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    period: "Jan - Jun 2024",
-    position: "Frontend Developer",
-    company: "Tech Company",
-    companyLink: "https://example.com",
+    period: "Agu - Des 2023",
+    position: "Software Engineer",
+    company: "Pt. Revolusi Citra Edukasi",
+    companyLink: "https://www.revou.co/id",
+    type: "Studi Independen",
+    description: `
+    - Working on a shipping website
+    - Working on analyzing and increasing global sales at game publishers`,
+    skills: ["Express.js","Pythhon", "Resfull API"]
+  },
+  {
+    period: "Feb - Jun 2024",
+    position: "Full-Stack Developer",
+    company: "Indi Technology",
+    companyLink: "https://web.indi.tech/",
     type: "Internship",
-    description: `Bekerja dengan tim pengembangan untuk membuat aplikasi web menggunakan React.js dan Next.js.
-    Mengimplementasikan desain responsif menggunakan Tailwind CSS.
-    Berpartisipasi dalam daily stand-up meeting dan code reviews.`,
-    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"]
+    description: `
+    - Working on API using express & mongoDB
+    - Working on using laravel, especially the filament and tenancy libraries
+    - Creating end to end testing using phpunit.`,
+    skills: ["Laravel", "PHP", "Unit Testing", "Restful API", "MongoDB", "Express.js"]
   },
-  {
-    period: "Jul - Dec 2023",
-    position: "Web Developer",
-    company: "Creative Agency",
-    companyLink: "https://example.com",
-    type: "Freelance",
-    description: `Mengembangkan website untuk berbagai klien dengan fokus pada UI/UX.
-    Mengoptimalkan kinerja website dan meningkatkan SEO.
-    Bekerja secara mandiri dan berkoordinasi langsung dengan klien.`,
-    skills: ["HTML", "CSS", "JavaScript", "WordPress"]
-  },
-  {
-    period: "Jan - Jun 2023",
-    position: "Junior Developer",
-    company: "Startup",
-    companyLink: "https://example.com",
-    type: "Part-time",
-    description: `Membantu pengembangan fitur baru untuk aplikasi berbasis web.
-    Memperbaiki bug dan meningkatkan performa aplikasi.
-    Berkolaborasi dengan tim desain untuk mengimplementasikan UI.`,
-    skills: ["HTML", "CSS", "JavaScript", "React.js"]
-  }
 ];
 
 export default function Experience() {
@@ -69,7 +59,7 @@ export default function Experience() {
               {/* Content */}
               <div className="relative">
                 {/* Timeline dot (visible on md and larger) */}
-                <div className="hidden md:block absolute -left-[2.5rem] top-2 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 border-4 border-white dark:border-gray-900"></div>
+                {/* <div className="hidden md:block absolute -left-[2.5rem] top-2 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 border-4 border-white dark:border-gray-900"></div> */}
                 
                 {/* Mobile timeline (visible on smaller screens) */}
                 <div className="md:hidden absolute -left-8 top-2 w-3 h-3 rounded-full bg-blue-500 dark:bg-blue-400"></div>
