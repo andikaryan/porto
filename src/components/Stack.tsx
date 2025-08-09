@@ -63,9 +63,9 @@ export default function Stack() {
           
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              "React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", 
-              "Express", "MongoDB", "PostgreSQL", "Git", "Firebase",
-              "Redux", "REST API", "Figma", "Responsive Design", "GraphQL"
+              "PHP", "Laravel", "React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", 
+              "Express", "MongoDB", "PostgreSQL", "Git",
+              "REST API", "Figma", "Responsive Design"
             ].map(tech => (
               <span 
                 key={tech}

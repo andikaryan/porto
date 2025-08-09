@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   return (
-    <nav className="w-full flex justify-between items-center py-4 px-8 bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 z-50">      {/* Menu navigasi di tengah untuk layar sedang/besar */}
+    <nav className="w-full justify-between grid place-items-center py-10 px-8 bg-white dark:bg-gray-900 shadow-md fixed right-0 left-0 z-10">      {/* Menu navigasi di tengah untuk layar sedang/besar */}
       <ul className="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
         <li><a href="#hero" className="text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400">Home</a></li>
         <li><a href="#about" className="text-gray-800 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400">About</a></li>
@@ -29,7 +29,7 @@ export default function Navbar() {
           </svg>
         </button>
         
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
         {/* Menu mobile - muncul saat diklik pada layar kecil */}
       {isMenuOpen && (
