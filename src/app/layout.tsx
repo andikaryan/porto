@@ -26,14 +26,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Script untuk mengatur class initial sebelum hydration */}
+        {/* Script untuk memaksa tema gelap selalu aktif */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  const theme = localStorage.getItem('theme') || 'dark';
-                  document.documentElement.classList.add(theme);
+                  // Remove any light theme classes
+                  document.documentElement.classList.remove('light');
+                  // Force dark theme
+                  document.documentElement.classList.add('dark');
+                  // Override any system preferences
+                  document.documentElement.style.colorScheme = 'dark';
                 } catch (e) {}
               })()
             `,

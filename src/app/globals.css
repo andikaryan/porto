@@ -1,26 +1,12 @@
 @import "tailwindcss";
 
-:root {
-  /* Light mode variables */
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #2563eb;
+/* Force dark theme globally */
+html {
+  color-scheme: dark !important;
 }
 
-.dark {
-  /* Dark mode variables */
+:root {
+  /* Dark mode variables - always active */
   --background: #0f172a;
   --foreground: #f1f5f9;
   --card: #1e293b;
@@ -39,14 +25,23 @@
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Smooth transitions for all elements */
+/* Force all elements to use dark theme */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
+}
+
+/* Override any potential light theme styles */
+html:not(.dark) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.dark {
+  filter: none;
 }

@@ -1,15 +1,13 @@
 'use client';
  
-import { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react';
+import { createContext, useContext, useEffect, useState, useMemo } from 'react';
 
-type Theme = 'light' | 'dark';
 type ThemeContextProviderProps = Readonly<{
   children: React.ReactNode;
 }>;
 
 type ThemeContextType = {
-  theme: Theme;
-  toggleTheme: () => void;
+  theme: 'dark';
 };
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
@@ -17,43 +15,22 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
-  const [theme, setTheme] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
-  // Initialize theme
+  // Force dark theme always
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
-      setTheme(savedTheme);
-    } else {
-      setTheme('dark');
-    }
+    // Remove any existing theme classes
+    document.documentElement.classList.remove('light', 'dark');
+    // Force dark theme
+    document.documentElement.classList.add('dark');
     setMounted(true);
   }, []);
 
-  // Handle theme toggling with useCallback
-  const toggleTheme = useCallback(() => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
-      
-      // Update classList
-      document.documentElement.classList.remove('dark', 'light');
-      document.documentElement.classList.add(newTheme);
-      
-      // Save to localStorage
-      localStorage.setItem('theme', newTheme);
-      
-      return newTheme;
-    });
-  }, []);
-
-  // Memoize context value to prevent unnecessary re-renders
+  // Always return dark theme
   const contextValue = useMemo(() => ({
-    theme,
-    toggleTheme,
-  }), [theme, toggleTheme]);
+    theme: 'dark' as const,
+  }), []);
 
-  // Return the Provider with the mounted check
   return (
     <ThemeContext.Provider value={contextValue}>
       {!mounted ? (
@@ -72,3 +49,4 @@ export function useTheme() {
   }
   return context;
 }
+

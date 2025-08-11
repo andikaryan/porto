@@ -7,22 +7,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Light mode
+        // Force dark mode colors
         background: {
-          DEFAULT: '#f8fafc', // light background
-          dark: '#0f172a',   // dark background (slate-900)
+          DEFAULT: '#0f172a', // Always dark
         },
         primary: {
-          DEFAULT: '#2563eb', // blue-600 for light mode
-          dark: '#60a5fa',   // blue-400 for dark mode
+          DEFAULT: '#60a5fa', // Always blue-400 (dark mode color)
         },
         // Dark mode specific colors
         'dark-card': '#1e293b',  // slate-800
         'dark-surface': '#0f172a', // slate-900
         'dark-border': '#334155', // slate-700
-        // Text colors
-        'light-text': '#0f172a',  // slate-900 for light mode
-        'dark-text': '#f1f5f9',   // slate-100 for dark mode
+        // Text colors - always dark mode
+        'light-text': '#f1f5f9',  // Always light text
+        'dark-text': '#f1f5f9',   // slate-100
         'dark-text-secondary': '#94a3b8', // slate-400
       },
       typography: {
